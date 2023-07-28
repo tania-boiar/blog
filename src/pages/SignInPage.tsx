@@ -53,7 +53,7 @@ export const SignInPage: React.FC = () => {
               alignItems: 'start',
             }}
           >
-            <img src="src/assets/images/waving-hand.svg" />
+            <img src="./src/assets/images/waving-hand.svg" />
             <Typography component="h1" variant="h5" sx={{ mt: 5 }}>
               Welcome back
             </Typography>
@@ -110,10 +110,10 @@ export const SignInPage: React.FC = () => {
               display: 'flex',
             }}>
               <a href="#">
-                <img src="src/assets/icons/google.svg" />
+                <img src="./src/assets/icons/google.svg" />
               </a>
               <a href="#">
-                <img src="src/assets/icons/facebook.svg" />
+                <img src="./src/assets/icons/facebook.svg" />
               </a>
             </Grid>
                 
