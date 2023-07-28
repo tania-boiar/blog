@@ -31,7 +31,7 @@ export const SignInPage: React.FC = () => {
           xs={false}
           sm={5}
           sx={{
-            backgroundImage: 'url(/public/assets/images/login.png)',
+            backgroundImage: 'url(./assets/images/login.png)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
@@ -53,7 +53,7 @@ export const SignInPage: React.FC = () => {
               alignItems: 'start',
             }}
           >
-            <img src="/public/assets/images/waving-hand.svg" />
+            <img src="./assets/images/waving-hand.svg" />
             <Typography component="h1" variant="h5" sx={{ mt: 5 }}>
               Welcome back
             </Typography>
@@ -110,10 +110,10 @@ export const SignInPage: React.FC = () => {
               display: 'flex',
             }}>
               <a href="#">
-                <img src="/public/assets/icons/google.svg" />
+                <img src="./assets/icons/google.svg" />
               </a>
               <a href="#">
-                <img src="/public/assets/icons/facebook.svg" />
+                <img src="./assets/icons/facebook.svg" />
               </a>
             </Grid>
                 
