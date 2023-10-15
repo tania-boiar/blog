@@ -20,17 +20,13 @@ import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import { Avatar, Button, Grid, Menu, MenuItem, Tooltip } from "@mui/material";
 import { NavLink } from "react-router-dom";
-import AdbIcon from "@mui/icons-material/Adb";
 import LogoutIcon from "@mui/icons-material/Logout";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 
 import {
   MDBCard,
   MDBCardBody,
-  MDBCol,
   MDBContainer,
-  MDBIcon,
-  MDBRow,
   MDBTypography,
 } from "mdb-react-ui-kit";
 
@@ -94,25 +90,6 @@ export const ArticlesDashboardPage: React.FC<Props> = (props) => {
   const drawer = (
     <div>
       <Toolbar sx={{ bgcolor: "#fff" }}>
-        {/* <AdbIcon sx={{ display: { xs: "flex" }, mr: 1 }} />
-        <Typography
-          variant="h6"
-          noWrap
-          component="a"
-          href="#"
-          sx={{
-            mr: 2,
-            display: { xs: "flex" },
-            fontFamily: "monospace",
-            fontWeight: 700,
-            letterSpacing: ".3rem",
-            color: "inherit",
-            textDecoration: "none",
-          }}
-        >
-          LOGO
-        </Typography> */}
-
         <a href="#">
           <img src="./assets/images/logo.svg" />
         </a>
