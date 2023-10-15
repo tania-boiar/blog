@@ -1,28 +1,39 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import CssBaseline from "@mui/material/CssBaseline";
-import Divider from "@mui/material/Divider";
-import Drawer from "@mui/material/Drawer";
-import IconButton from "@mui/material/IconButton";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import MailIcon from "@mui/icons-material/Mail";
-import MenuIcon from "@mui/icons-material/Menu";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import SearchIcon from "@mui/icons-material/Search";
-import { styled, alpha } from "@mui/material/styles";
-import InputBase from "@mui/material/InputBase";
-import { Avatar, Button, Grid, Menu, MenuItem, Tooltip } from "@mui/material";
 import { NavLink } from "react-router-dom";
+import { styled, alpha } from "@mui/material/styles";
+import MenuIcon from "@mui/icons-material/Menu";
+import SearchIcon from "@mui/icons-material/Search";
 import LogoutIcon from "@mui/icons-material/Logout";
+import EastIcon from '@mui/icons-material/East';
+import AvTimerIcon from '@mui/icons-material/AvTimer';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
+import { 
+  Container,
+  Grid,
+  Box,
+  CssBaseline,
+  Typography,
+  Divider,
+  Drawer,
+  AppBar,
+  Toolbar,
+  Avatar,
+  Button,
+  InputBase,
+  IconButton,
+  Menu,
+  MenuItem,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia
+} from "@mui/material";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
-
 import {
   MDBCard,
   MDBCardBody,
@@ -31,6 +42,7 @@ import {
 } from "mdb-react-ui-kit";
 
 const drawerWidth = 240;
+const cards = [1, 2, 3, 4, 5, 6, 7, 8];
 
 interface Props {
   window?: () => Window;
@@ -96,23 +108,21 @@ export const ArticlesDashboardPage: React.FC<Props> = (props) => {
       </Toolbar>
       <Divider />
 
-      <List sx={{paddingLeft: "24px",}}>
+      <List sx={{paddingLeft: "24px", paddingBottom: "34px"}}>
         <ListItem>
-          <Typography>Main menu</Typography>
+          <Typography sx={{ textTransform: "capitalize", color: "#6F7C8B80", fontWeight: "500", py: "16px" }}>Main menu</Typography>
         </ListItem>
-        {["Dashboard"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
+        {["Dashboard"].map((text) => (
+          <ListItem key={text} sx={{color:"#1943EF", fontWeight: "500"}}>
+            <ListItemIcon >
+              <AvTimerIcon sx={{color:"#1943EF"}} />
+            </ListItemIcon>
+            <ListItemText primary={text} />
           </ListItem>
         ))}
       </List>
       <Divider />
-      <List sx={{paddingLeft: "14px",}}>
+      <List sx={{paddingLeft: "14px", paddingTop: "27px"}}>
         <ListItem>
           <Button
             variant="contained"
@@ -120,8 +130,11 @@ export const ArticlesDashboardPage: React.FC<Props> = (props) => {
             sx={{
               bgcolor: "#F5F6F7",
               color: "#1A1E2C",
-              borderRadius: "0",
+              borderRadius: "3px",
               minWidth: "186px",
+              boxShadow: "none",
+              textTransform: "capitalize",
+              fontWeight: "500"
             }}
           >
             Logout
@@ -179,11 +192,11 @@ export const ArticlesDashboardPage: React.FC<Props> = (props) => {
           </Box>
 
           <Box sx={{ flexGrow: 0}}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="./assets/images/anette-black.png" />
-              </IconButton>
-            </Tooltip>
+            <Button onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <Avatar alt="Annette Black" src="./assets/images/anette-black.png" />
+              <Typography sx={{px: "16px", textTransform: "capitalize", fontWeight: "500", color: "#1A1E2C", display: { xs: "none", md: "block" },}}>Annette Black</Typography>
+              <ExpandMoreIcon sx={{color: "#8E94A7"}} />
+            </Button>
             <Menu
               sx={{ mt: "45px" }}
               id="menu-appbar"
@@ -251,7 +264,7 @@ export const ArticlesDashboardPage: React.FC<Props> = (props) => {
         component="main"
         sx={{
           flexGrow: 1,
-          p: 3,
+          p: 4,
           bgcolor: "#F5F6F7",
           minHeight: "100vh",
           width: { sm: `calc(100% - ${drawerWidth}px)` },
@@ -259,38 +272,68 @@ export const ArticlesDashboardPage: React.FC<Props> = (props) => {
       >
         <Toolbar />
         <Grid container justifyContent="space-between">
+          <Grid item>
+            <Typography component="h1"
+              sx={{
+                paddingLeft: "8px",
+                color: "#1A1E2C",
+                fontSize: "21px",
+                fontWeight: "700",
+              }}
+            >
+                Articles Dashboard
+            </Typography>
+          </Grid>
+        </Grid>
+
+        <Grid container justifyContent="space-between">
           <CssBaseline />
           <Grid item xs={12} lg={8}>
-            <Typography paragraph>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Rhoncus dolor purus non enim praesent elementum facilisis leo vel.
-              Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-              gravida rutrum quisque non tellus. Convallis convallis tellus id
-              interdum velit laoreet id donec ultrices. Odio morbi quis commodo
-              odio aenean sed adipiscing. Amet nisl suscipit adipiscing bibendum
-              est ultricies integer quis. Cursus euismod quis viverra nibh cras.
-              Metus vulputate eu scelerisque felis imperdiet proin fermentum
-              leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt
-              lobortis feugiat vivamus at augue. At augue eget arcu dictum
-              varius duis at consectetur lorem. Velit sed ullamcorper morbi
-              tincidunt. Lorem donec massa sapien faucibus et molestie ac.
-            </Typography>
-            <Typography paragraph>
-              Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
-              ullamcorper eget nulla facilisi etiam dignissim diam. Pulvinar
-              elementum integer enim neque volutpat ac tincidunt. Ornare
-              suspendisse sed nisi lacus sed viverra tellus. Purus sit amet
-              volutpat consequat mauris. Elementum eu facilisis sed odio morbi.
-              Euismod lacinia at quis risus sed vulputate odio. Morbi tincidunt
-              ornare massa eget egestas purus viverra accumsan in. In hendrerit
-              gravida rutrum quisque non tellus orci ac. Pellentesque nec nam
-              aliquam sem et tortor. Habitant morbi tristique senectus et.
-              Adipiscing elit duis tristique sollicitudin nibh sit. Ornare
-              aenean euismod elementum nisi quis eleifend. Commodo viverra
-              maecenas accumsan lacus vel facilisis. Nulla posuere sollicitudin
-              aliquam ultrices sagittis orci a.
-            </Typography>
+            <Container sx={{ py: 4, ml: "-16px" }} maxWidth="lg">
+              <Grid container spacing={4}>
+                {cards.map((card) => (
+                  <Grid item key={card} xs={12} sm={12} md={6}>
+                    <Card
+                      sx={{ height: '100%', display: 'flex', flexDirection: 'column', borderRadius: '6px'}}
+                    >
+                      <CardMedia
+                        component="div"
+                        sx={{
+                          // 16:9
+                          pt: '42%',
+                        }}
+                        image="https://source.unsplash.com/random?wallpapers"
+                      />
+                      <CardContent sx={{ flexGrow: 1, px: "24px" }}>
+                        <Box sx={{ display: "flex", justifyContent: "space-between"}}>
+                          <Typography variant="overline" color={"#6E798C"}>
+                            Productivity
+                          </Typography>
+                          <Typography variant="overline" color={"#6E798C"}>
+                            3 days ago
+                          </Typography>
+                        </Box>
+                        <Typography gutterBottom variant="h5" component="h2" color={"##081F32"} fontWeight={500}>
+                        7 Skills of Highly Effective Programmers
+                        </Typography>
+                        <Typography color={"#374A59"}>
+                          Our team was inspired by the seven skills of highly effective programmers created by the TechLead. We wanted to provide our own take on the topic...
+                        </Typography>
+                      </CardContent>
+                      <CardActions sx={{ justifyContent: "space-between", pb: "16px", pl: "16px", pr: "24px", pt: "0px" }}>
+                        <Button size="small" sx={{ pr: "10px", textTransform: "none", color: "#4C6FFF"}}>
+                          <Avatar alt="Glen Williams" src="./assets/images/glen-williams.png" sx={{ mr: "8px" }} />
+                          Glen Williams
+                        </Button>
+                        <Button size="small" sx={{ py: "12px", px: "8px", textTransform: "none", color: "#4C6FFF" }}>Read more
+                        <EastIcon fontSize="small" sx={{ pl: "4px"}}/>
+                        </Button>
+                      </CardActions>
+                    </Card>
+                  </Grid>
+                ))}
+              </Grid>
+            </Container>
           </Grid>
 
           <Grid item 
@@ -299,24 +342,25 @@ export const ArticlesDashboardPage: React.FC<Props> = (props) => {
             }}
             md={4}
           >
-
             <MDBContainer className="d-flex justify-content-end"
-            style={{ paddingRight: "0px"}}>
+              style={{ paddingRight: "0px", marginTop: "32px"}}>
               <MDBCard
                 style={{
                   color: "#4B515D",
-                  borderRadius: "35px",
+                  borderRadius: "6px",
                   backgroundColor: "#fff",
                   minWidth: "280px",
                   justifySelf: "flex-end",
                 }}
               >
-                <MDBCardBody className="p-4">
+                <MDBCardBody className="p-4" style={{color: "#6E798C"}}>
                   <div className="d-flex">
-                    <MDBTypography tag="h6" className="flex-grow-1">
+                    <MDBTypography tag="h6" className="flex-grow-1 text-uppercase pt-2" >
                       Weather widget
                     </MDBTypography>
-                    <MDBTypography tag="h6">15:07</MDBTypography>
+                    <IconButton>
+                      <MoreHorizOutlinedIcon />
+                    </IconButton>
                   </div>
 
                   <div className="d-flex align-items-center justify-content-between">
@@ -324,16 +368,16 @@ export const ArticlesDashboardPage: React.FC<Props> = (props) => {
                       <MDBTypography
                         tag="h6"
                         className="display-4 mb-0 font-weight-bold"
-                        style={{ color: "#1C2331" }}
+                        style={{ color: "#2E384D", fontWeight: "500" }}
                       >
                         {" "}
-                        13°C{" "}
+                        13<span style={{ fontSize: "40px" }}><sup>°C</sup></span>{" "}
                       </MDBTypography>
-                      <span className="small" style={{ color: "#868B94" }}>
+                    
+                      <span className="small" style={{ color: "#374A59" }}>
                         Lviv, Ukraine
                       </span>
                     </div>
-
 
                     <div>
                       <img
@@ -342,11 +386,9 @@ export const ArticlesDashboardPage: React.FC<Props> = (props) => {
                       />
                     </div>
                   </div>
-
                 </MDBCardBody>
               </MDBCard>
             </MDBContainer>
-
           </Grid>
         </Grid>
       </Box>
