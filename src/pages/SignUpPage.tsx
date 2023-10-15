@@ -9,7 +9,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { NavLink } from "react-router-dom";
-import { Checkbox, FormControlLabel, Link } from "@mui/material";
+import { Checkbox, FormControlLabel } from "@mui/material";
 
 const defaultTheme = createTheme();
 
