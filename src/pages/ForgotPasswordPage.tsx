@@ -42,6 +42,7 @@ export const ForgotPasswordPage: React.FC = () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
+              color: "#6F7C8B",
             }}>
           <Box
             sx={{
@@ -52,15 +53,15 @@ export const ForgotPasswordPage: React.FC = () => {
               alignItems: 'start',
             }}
           >
-            <Typography component="h1" variant="h5" sx={{ mt: 5 }}>
+            <Typography component="h1" variant="h5" sx={{ mt: 5, fontWeight: "700", color: "#1A1E2C" }}>
               Password recovery
             </Typography>
-            <Typography component="p" sx={{ mt: 1 }}>
+            <Typography component="p" sx={{ mt: 1, color: "#1A1E2C" }}>
               Enter the email you're using for your account
             </Typography>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 4 }}>
               {/* <InputLabel key="email" sx={{ mb: -1}}>Email Address</InputLabel> */}
-              <label htmlFor="email">Email Address</label>
+              <label htmlFor="email" style={{ fontWeight: "500" }}>Email Address</label>
               <TextField
                 sx={{ mt: 1 }}
                 margin="normal"
@@ -76,15 +77,22 @@ export const ForgotPasswordPage: React.FC = () => {
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{
+                  mt: 3,
+                  mb: 2,
+                  backgroundColor: "#4C6FFF",
+                  height: "55px",
+                  textTransform: "none",
+                  fontWeight: "500",
+                }}
               >
                 Reset
               </Button>
             </Box>
 
-            <Grid container>
-              <NavLink to="/sign-in">
-                Back to login
+            <Grid container sx={{justifyContent: "center"}}>
+              <NavLink to="/sign-in" style={{ color: "#4C6FFF", marginTop: "20px" }}>
+                Back to Login
               </NavLink>
               </Grid>
           </Box>

@@ -42,6 +42,7 @@ export const SignInPage: React.FC = () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
+              color: "#6F7C8B",
             }}>
           <Box
             sx={{
@@ -53,15 +54,19 @@ export const SignInPage: React.FC = () => {
             }}
           >
             <img src="./assets/images/waving-hand.svg" />
-            <Typography component="h1" variant="h5" sx={{ mt: 5 }}>
+            <Typography component="h1" variant="h5" sx={{ mt: 5, fontWeight: "700", color: "#1A1E2C" }}>
               Welcome back
             </Typography>
-            <Typography component="p" sx={{ mt: 1 }}>
-            Sign in to manage your account
+            <Typography component="p" sx={{ mt: 1, color: "#1A1E2C" }}>
+            Sign in to manage your account or
+            <NavLink to="/articles" style={{paddingLeft: "5px",  color: "#4C6FFF" }}>
+                Go to articles
+            </NavLink>
             </Typography>
+         
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 4 }}>
               {/* <InputLabel key="email" sx={{ mb: -1}}>Email Address</InputLabel> */}
-              <label htmlFor="email">Email Address</label>
+              <label htmlFor="email" style={{ fontWeight: "500" }}>Email Address</label>
               <TextField
                 sx={{ mt: 1 }}
                 margin="normal"
@@ -74,7 +79,7 @@ export const SignInPage: React.FC = () => {
                 autoFocus
               />
               {/* <InputLabel key="password" sx={{ mb: -1}}>Password</InputLabel> */}
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password" style={{ fontWeight: "500" }}>Password</label>
               <TextField
                 sx={{ mt: 1 }}
                 margin="normal"
@@ -88,7 +93,7 @@ export const SignInPage: React.FC = () => {
               />
               
               <Grid item xs sx={{ mt: 2 }}>
-                  <NavLink to="/forgot-password">
+                  <NavLink to="/forgot-password" style={{ color: "#4C6FFF" }}>
                   Forgot your password?
                 </NavLink>
                 </Grid>
@@ -96,33 +101,76 @@ export const SignInPage: React.FC = () => {
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{
+                  mt: 3,
+                  mb: 2,
+                  backgroundColor: "#4C6FFF",
+                  height: "55px",
+                  textTransform: "none",
+                  fontWeight: "500",
+                }}
               >
                 Sign In
               </Button>
             </Box>
-            <Grid container>
-                <Grid item>
-                {"Or do it via other account"}
-                </Grid>
-            </Grid>
-            <Grid item sx={{
-              display: 'flex',
-            }}>
-              <a href="#">
-                <img src="./assets/icons/google.svg" />
-              </a>
-              <a href="#">
-                <img src="./assets/icons/facebook.svg" />
-              </a>
-            </Grid>
+
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignSelf: "center",
+                alignItems: "center",  
+              }}
+            >
+              <Grid container justifyContent={"center"}>
+                <Grid item sx={{ mb: "16px"
+                }}
+              >{"Or do it via other account"}</Grid>
+              </Grid>
+              <Grid
+                item
+                sx={{
+                  display: "flex",
+                }}
+              >
+                <div
+                  style={{
+                    border: "1px solid #fff",
+                    borderRadius: "6px",
+                    padding: "12px 23px",
+                    boxShadow: "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px",
+                    marginRight: "20px",
+                  }}
+                >
+                  <a href="#">
+                    <img src="./assets/icons/google.svg" />
+                  </a>
+                </div>
+                <div
+                  style={{
+                    border: "1px solid #fff",
+                    borderRadius: "6px",
+                    padding: "12px 23px",
+                    boxShadow: "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px",
+                  }}
+                >
+                  <a href="#">
+                    <img src="./assets/icons/facebook.svg" />
+                  </a>
+                </div>
+              </Grid>
+            </Box>
                 
 
-            <Grid container>
-                <Grid item>
+            <Grid container sx={{
+                position: "relative",
+                bottom: "-50px",
+                justifyContent: "center",
+              }}>
+                <Grid item pr={"5px"}>
                 {"Don't have an account? "}
                 </Grid>
-                <NavLink to="/sign-up">
+                <NavLink to="/sign-up" style={{ color: "#4C6FFF" }}>
                   Sign Up
                 </NavLink>
               </Grid>

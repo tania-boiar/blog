@@ -124,21 +124,23 @@ export const ArticlesDashboardPage: React.FC<Props> = (props) => {
       <Divider />
       <List sx={{paddingLeft: "14px", paddingTop: "27px"}}>
         <ListItem>
-          <Button
-            variant="contained"
-            startIcon={<LogoutIcon />}
-            sx={{
-              bgcolor: "#F5F6F7",
-              color: "#1A1E2C",
-              borderRadius: "3px",
-              minWidth: "186px",
-              boxShadow: "none",
-              textTransform: "capitalize",
-              fontWeight: "500"
-            }}
-          >
-            Logout
-          </Button>
+        <NavLink to="/sign-in">
+            <Button
+              variant="contained"
+              startIcon={<LogoutIcon />}
+              sx={{
+                bgcolor: "#F5F6F7",
+                color: "#1A1E2C",
+                borderRadius: "3px",
+                minWidth: "186px",
+                boxShadow: "none",
+                textTransform: "capitalize",
+                fontWeight: "500"
+              }}
+            >
+              Logout
+            </Button>
+          </NavLink>
         </ListItem>
       </List>
     </div>
