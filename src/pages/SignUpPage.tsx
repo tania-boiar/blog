@@ -53,6 +53,7 @@ export const SignUpPage: React.FC = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            color: "#6F7C8B",
           }}
         >
           <Box
@@ -64,10 +65,14 @@ export const SignUpPage: React.FC = () => {
               alignItems: "start",
             }}
           >
-            <Typography component="h1" variant="h5" sx={{ mt: 5 }}>
+            <Typography
+              component="h1"
+              variant="h5"
+              sx={{ mt: 5, fontWeight: "700", color: "#1A1E2C" }}
+            >
               Get started today
             </Typography>
-            <Typography component="p" sx={{ mt: 1 }}>
+            <Typography component="p" sx={{ mt: 1, color: "#1A1E2C" }}>
               Enter your details to create super account
             </Typography>
             <Box
@@ -78,17 +83,23 @@ export const SignUpPage: React.FC = () => {
             >
               <Grid
                 item
-                sx={{
-                  display: "flex",
-                }}
+                sx={
+                  {
+                    // display: "flex",
+                  }
+                }
               >
                 <Grid
                   item
-                  sx={{
-                    display: "flex",
-                  }}
+                  sx={
+                    {
+                      // display: "flex",
+                    }
+                  }
                 >
-                  <label htmlFor="name">Name</label>
+                  <label htmlFor="name" style={{ fontWeight: "500" }}>
+                    Name
+                  </label>
                   <TextField
                     sx={{ mt: 1 }}
                     margin="normal"
@@ -103,11 +114,15 @@ export const SignUpPage: React.FC = () => {
                 </Grid>
                 <Grid
                   item
-                  sx={{
-                    display: "flex",
-                  }}
+                  sx={
+                    {
+                      // display: "flex",
+                    }
+                  }
                 >
-                  <label htmlFor="name">Age</label>
+                  <label htmlFor="name" style={{ fontWeight: "500" }}>
+                    Age
+                  </label>
                   <TextField
                     sx={{ mt: 1 }}
                     margin="normal"
@@ -124,85 +139,151 @@ export const SignUpPage: React.FC = () => {
 
               {/* <InputLabel key="email" sx={{ mb: -1}}>Email Address</InputLabel> */}
               <Grid item>
-              <label htmlFor="email">Email Address</label>
-              <TextField
-                sx={{ mt: 1 }}
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                placeholder="Enter your email address"
-                name="email"
-                autoComplete="email"
-                autoFocus
-              />
+                <label htmlFor="email" style={{ fontWeight: "500" }}>
+                  Email Address
+                </label>
+                <TextField
+                  sx={{ mt: 1 }}
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="email"
+                  placeholder="Enter your email address"
+                  name="email"
+                  autoComplete="email"
+                  autoFocus
+                />
               </Grid>
               {/* <InputLabel key="password" sx={{ mb: -1}}>Password</InputLabel> */}
 
               <Grid item>
-              <label htmlFor="password">Password</label>
-              <TextField
-                sx={{ mt: 1 }}
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                placeholder="Enter your password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
-               </Grid>
+                <label htmlFor="password" style={{ fontWeight: "500" }}>
+                  Password
+                </label>
+                <TextField
+                  sx={{ mt: 1 }}
+                  margin="normal"
+                  required
+                  fullWidth
+                  name="password"
+                  placeholder="Enter your password"
+                  type="password"
+                  id="password"
+                  autoComplete="current-password"
+                />
+              </Grid>
               {/* <label htmlFor="confirm-password">Confirm New Password</label> */}
               <Grid item>
-              <label htmlFor="confirm-password">Confirm New Password</label>
-              <TextField
-                sx={{ mt: 1 }}
-                margin="normal"
-                required
-                fullWidth
-                name="confirm-password"
-                placeholder="Enter your new password again"
-                type="password"
-                id="confirm-password"
-                autoComplete="current-password"
-              />
-               </Grid>
-               <FormControlLabel
-                required
-                control={<Checkbox />}
-                label="I agree to Product Terms and Policy"
-              />
+                <label htmlFor="confirm-password" style={{ fontWeight: "500" }}>
+                  Confirm New Password
+                </label>
+                <TextField
+                  sx={{ mt: 1 }}
+                  margin="normal"
+                  required
+                  fullWidth
+                  name="confirm-password"
+                  placeholder="Enter your new password again"
+                  type="password"
+                  id="confirm-password"
+                  autoComplete="current-password"
+                />
+              </Grid>
+              <Box display="flex" flexDirection={"column"}>
+                <FormControlLabel
+                  required
+                  control={<Checkbox />}
+                  label="I agree to Product"
+                />
+                <NavLink
+                  to="/terms"
+                  style={{
+                    marginLeft: "32px",
+                    marginTop: "-10px",
+                    color: "#4C6FFF",
+                    fontWeight: "500",
+                  }}
+                >
+                  Terms and Policy
+                </NavLink>
+              </Box>
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{
+                  mt: 3,
+                  mb: 2,
+                  backgroundColor: "#4C6FFF",
+                  height: "55px",
+                  textTransform: "none",
+                  fontWeight: "500",
+                }}
               >
                 Get started now
               </Button>
-
             </Box>
-            <Grid container>
-              <Grid item>{"Or sign up with"}</Grid>
-            </Grid>
-            <Grid
-              item
+            <Box
               sx={{
                 display: "flex",
+                flexDirection: "column",
+                alignSelf: "center",
+                alignItems: "center",  
               }}
             >
-              <a href="#">
-                <img src="./assets/icons/google.svg" />
-              </a>
-              <a href="#">
-                <img src="./assets/icons/facebook.svg" />
-              </a>
-            </Grid>
+              <Grid container justifyContent={"center"}>
+                <Grid item sx={{ mb: "16px"
+                }}
+              >{"Or sign up with"}</Grid>
+              </Grid>
+              <Grid
+                item
+                sx={{
+                  display: "flex",
+                }}
+              >
+                <div
+                  style={{
+                    border: "1px solid #fff",
+                    borderRadius: "6px",
+                    padding: "12px 23px",
+                    boxShadow: "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px",
+                    marginRight: "20px",
+                  }}
+                >
+                  <a href="#">
+                    <img src="./assets/icons/google.svg" />
+                  </a>
+                </div>
+                <div
+                  style={{
+                    border: "1px solid #fff",
+                    borderRadius: "6px",
+                    padding: "12px 23px",
+                    boxShadow: "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px",
+                  }}
+                >
+                  <a href="#">
+                    <img src="./assets/icons/facebook.svg" />
+                  </a>
+                </div>
+              </Grid>
+            </Box>
 
-            <Grid container>
-              <Grid item>{"Already have an account? "}</Grid>
-              <NavLink to="/sign-in">Login</NavLink>
+            <Grid
+              container
+              sx={{
+                position: "relative",
+                bottom: "-46px",
+                justifyContent: "center",
+              }}
+            >
+              <Grid item pr={"5px"}>
+                {"Already have an account? "}
+              </Grid>
+              <NavLink to="/sign-in" style={{ color: "#4C6FFF" }}>
+                Login
+              </NavLink>
             </Grid>
           </Box>
         </Grid>

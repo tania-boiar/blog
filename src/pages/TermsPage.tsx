@@ -6,8 +6,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { Button, Container } from '@mui/material';
-
-
+import { NavLink } from 'react-router-dom';
 
 export const TermsPage: React.FC= () => (
   <React.Fragment>
@@ -19,12 +18,12 @@ export const TermsPage: React.FC= () => (
             <a href="#">
               <img src="./assets/images/logo-white.svg" />
             </a>
-            <Button sx={{ color: "#fff", textTransform: "none", justifyContent: "flex-start"}}>
+            <NavLink to="/sign-in" style={{ color: "#fff", textTransform: "none", justifyContent: "flex-start", display: "flex", alignItems: "center"}}>
             <ChevronLeftIcon fontSize='small' sx={{marginRight: "14px"}} />
             <Typography variant="h5" component="div" sx={{ fontWeight: "700"}}>
               Product legal information
             </Typography>
-            </Button>
+            </NavLink>
           </Box>
         </Container>
       </Toolbar>
@@ -79,7 +78,9 @@ export const TermsPage: React.FC= () => (
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </Typography>
 
-        <Button variant="outlined" sx={{borderRadius: "3px", borderColor: "#6F7C8B80", color: "#6F7C8B", width: "108px"}}>Back</Button>
+        <NavLink to="/sign-in">
+          <Button variant="outlined" sx={{borderRadius: "3px", borderColor: "#6F7C8B80", color: "#6F7C8B", width: "108px"}}>Back</Button>
+        </NavLink>
       </Container>
     </Box>
   </main>
