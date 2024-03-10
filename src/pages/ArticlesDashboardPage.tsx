@@ -40,6 +40,7 @@ import {
   MDBContainer,
   MDBTypography,
 } from "mdb-react-ui-kit";
+import { Add } from "@mui/icons-material";
 
 const drawerWidth = 240;
 const cards = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -281,17 +282,34 @@ export const ArticlesDashboardPage: React.FC<Props> = (props) => {
                 color: "#1A1E2C",
                 fontSize: "21px",
                 fontWeight: "700",
+                mb: 2,
               }}
             >
                 Articles Dashboard
             </Typography>
           </Grid>
+          <NavLink to="/add-article">
+            <Button
+              variant="contained"
+              startIcon={<Add />}
+              sx={{
+                bgcolor: "#4C6FFF",
+                borderRadius: "3px",
+                minWidth: "186px",
+                boxShadow: "none",
+                textTransform: "capitalize",
+                fontWeight: "500",
+              }}
+            >
+              Add article
+            </Button>
+          </NavLink>
         </Grid>
 
         <Grid container justifyContent="space-between">
           <CssBaseline />
           <Grid item xs={12} lg={8}>
-            <Container sx={{ py: 4, ml: "-16px" }} maxWidth="lg">
+            <Container sx={{ pb: 4, pt: 1, ml: "-16px" }} maxWidth="lg">
               <Grid container spacing={4}>
                 {cards.map((card) => (
                   <Grid item key={card} xs={12} sm={12} md={6}>
