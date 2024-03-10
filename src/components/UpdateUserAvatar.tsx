@@ -1,4 +1,4 @@
-import { Box, Button, Grid, TextField, Typography } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import DragAndDropUploadField from "./DragAndDropUploadField copy";
 
 function UpdateUserAvatar() {

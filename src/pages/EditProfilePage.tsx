@@ -11,7 +11,6 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import {
   Paper,
-  Container,
   Grid,
   Box,
   CssBaseline,
@@ -30,7 +29,6 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  TextField,
   Tab,
 } from "@mui/material";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
@@ -91,15 +89,6 @@ export const EditProfilePage: React.FC<Props> = (props) => {
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null,
   );
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
-  };
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -176,6 +165,7 @@ export const EditProfilePage: React.FC<Props> = (props) => {
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
+    event.preventDefault();
   };
 
   return (
