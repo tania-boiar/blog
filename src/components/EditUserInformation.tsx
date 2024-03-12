@@ -1,7 +1,6 @@
 import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 
 function EditUserInformation() {
-
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);

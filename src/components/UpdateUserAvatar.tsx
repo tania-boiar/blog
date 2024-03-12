@@ -2,7 +2,6 @@ import { Box, Button, Grid, Typography } from "@mui/material";
 import DragAndDropUploadField from "./DragAndDropUploadField copy";
 
 function UpdateUserAvatar() {
-
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
