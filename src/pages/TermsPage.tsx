@@ -1,15 +1,11 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import CssBaseline from '@mui/material/CssBaseline';
-import Box from '@mui/material/Box';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import { Button, Container } from '@mui/material';
 import { NavLink } from 'react-router-dom';
+import { AppBar, Toolbar, Typography, CssBaseline, Box, Button, Container, ThemeProvider } from '@mui/material';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import { defaultTheme } from '../theme';
 
 export const TermsPage: React.FC= () => (
-  <React.Fragment>
+  <ThemeProvider theme={defaultTheme}>
   <CssBaseline />
     <AppBar position="fixed" elevation={0}>
       <Toolbar sx={{ backgroundColor: "#040D32", height: "154px" }} >
@@ -79,11 +75,12 @@ export const TermsPage: React.FC= () => (
         </Typography>
 
         <NavLink to="/sign-in">
-          <Button variant="outlined" sx={{borderRadius: "3px", borderColor: "#6F7C8B80", color: "#6F7C8B", width: "108px"}}>Back</Button>
+          <Button variant="outlined"
+          sx={{ width: "108px"}}>
+            Back</Button>
         </NavLink>
       </Container>
     </Box>
   </main>
-
-</React.Fragment>
+</ThemeProvider>
 );

@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "category": "Productivity",
+    "date": "24 march 2024",
+    "title": "7 Skills of Highly Effective Programmers",
+    "shortDescription": " Our team was inspired by the seven skills of highly effective programmers created by the TechLead. We wanted to provide our own take on the topic...",
+    "author": "Glen Williams",
+    "avatar": "./assets/images/avatars/glen-williams.png",
+    "imageUrl": "https://picsum.photos/1200/800?random=1"
+  },
+  {
+    "id": 2,
+    "category": "Media",
+    "date": "10 march 2024",
+    "title": "SMM starter pack, part 2: content promotion",
+    "shortDescription": "This is the second part of the SMM starter pack series of articles. If you made it this far, you must be willing to learn about promoting business through social media.",
+    "author": "Annette Black",
+    "avatar": "./assets/images/avatars/anette-black.png",
+    "imageUrl": "https://picsum.photos/1200/480?random=2"
+  },
+  {
+    "id": 3,
+    "category": "Business",
+    "date": "4 march 2024",
+    "title": "11 Things I Wish I Knew When I Started My Business",
+    "shortDescription": "Here are 11 things I wish I knew when I started my business. I hope they will save you some time and some anguish because (experience is a good teacher here)...",
+    "author": "Lisa Barnes",
+    "avatar": "",
+    "imageUrl": "https://picsum.photos/1200/800?random=3"
+  },
+  {
+    "id": 4,
+    "category": "Productivity",
+    "date": "24 march 2024",
+    "title": "7 Skills of Highly Effective Programmers",
+    "shortDescription": " Our team was inspired by the seven skills of highly effective programmers created by the TechLead. We wanted to provide our own take on the topic...",
+    "author": "Patricia Kemp",
+    "avatar": "",
+    "imageUrl": "https://picsum.photos/1200/800?random=4"
+  },
+  {
+    "id": 5,
+    "category": "Productivity",
+    "date": "24 march 2024",
+    "title": "7 Skills of Highly Effective Programmers",
+    "shortDescription": " Our team was inspired by the seven skills of highly effective programmers created by the TechLead. We wanted to provide our own take on the topic...",
+    "author": "Glen Williams",
+    "avatar": "./assets/images/avatars/glen-williams.png",
+    "imageUrl": "https://picsum.photos/1200/800?random=5"
+  },
+  {
+    "id": 6,
+    "category": "Media",
+    "date": "24 march 2024",
+    "title": "7 Skills of Highly Effective Programmers",
+    "shortDescription": " Our team was inspired by the seven skills of highly effective programmers created by the TechLead. We wanted to provide our own take on the topic...",
+    "author": "Patricia Kemp",
+    "avatar": "",
+    "imageUrl": "https://picsum.photos/1200/800?random=6"
+  },
+  {
+    "id": 7,
+    "category": "Media",
+    "date": "24 march 2024",
+    "title": "7 Skills of Highly Effective Programmers",
+    "shortDescription": " Our team was inspired by the seven skills of highly effective programmers created by the TechLead. We wanted to provide our own take on the topic...",
+    "author": "Annette Black",
+    "avatar": "./assets/images/avatars/anette-black.png",
+    "imageUrl": "https://picsum.photos/1200/800?random=7"
+  },
+  {
+    "id": 8,
+    "category": "Business",
+    "date": "24 march 2024",
+    "title": "7 Skills of Highly Effective Programmers",
+    "shortDescription": " Our team was inspired by the seven skills of highly effective programmers created by the TechLead. We wanted to provide our own take on the topic...",
+    "author": "Annette Black",
+    "avatar": "./assets/images/avatars/anette-black.png",
+    "imageUrl": "https://picsum.photos/1200/800?random=8"
+  }
+]

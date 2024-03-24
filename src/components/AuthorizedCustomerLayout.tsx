@@ -192,7 +192,7 @@ export const AuthorizedCustomerLayout: React.FC<Props> = (props) => {
             <Button onClick={handleOpenUserMenu} sx={{ p: 0 }}>
               <Avatar
                 alt="Annette Black"
-                src="./assets/images/anette-black.png"
+                src="./assets/images/avatars/anette-black.png"
               />
               <Typography
                 sx={{

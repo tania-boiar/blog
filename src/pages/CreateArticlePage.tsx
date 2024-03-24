@@ -7,10 +7,12 @@ import {
   Toolbar,
   Button,
   TextField,
+  ThemeProvider,
 } from "@mui/material";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
-import DragAndDropUploadField from "../components/DragAndDropUploadField copy";
+import { DragAndDropUploadField } from "../components/DragAndDropUploadField copy";
 import { drawerWidth } from "../helpers/constants";
+import { defaultTheme } from "../theme";
 
 export const CreateArticlePage = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -23,7 +25,7 @@ export const CreateArticlePage = () => {
   };
 
   return (
-    <>
+    <ThemeProvider theme={defaultTheme}>
       <Box
         component="main"
         sx={{
@@ -125,18 +127,12 @@ export const CreateArticlePage = () => {
                 <DragAndDropUploadField />
                 <Button
                   // type="submit"
-                  variant="contained"
+                  variant="outlined"
                   sx={{
                     mt: 3,
                     mb: 2,
                     mr: 2,
                     px: 4,
-                    backgroundColor: "#FFFFFF",
-                    color: "#6F7C8B",
-                    height: "38px",
-                    textTransform: "none",
-                    fontWeight: "500",
-                    border: "1px solid #C4C4C4",
                   }}
                 >
                   Cancel
@@ -148,10 +144,7 @@ export const CreateArticlePage = () => {
                     mt: 3,
                     mb: 2,
                     px: 4,
-                    backgroundColor: "#4C6FFF",
-                    height: "38px",
-                    textTransform: "none",
-                    fontWeight: "500",
+                    height: "38px"
                   }}
                 >
                   Publish
@@ -161,6 +154,6 @@ export const CreateArticlePage = () => {
           </Grid>
         </Grid>
       </Box>
-    </>
+    </ThemeProvider>
   );
 };

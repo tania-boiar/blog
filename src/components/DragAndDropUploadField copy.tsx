@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Grid, IconButton, Typography } from "@mui/material";
 import { CloudUploadOutlined } from "@mui/icons-material";
 
-function DragAndDropUploadField() {
+export const DragAndDropUploadField = () => {
   const [file, setFile] = useState<File | null>(null);
 
   const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
@@ -76,4 +76,3 @@ function DragAndDropUploadField() {
   );
 }
 
-export default DragAndDropUploadField;

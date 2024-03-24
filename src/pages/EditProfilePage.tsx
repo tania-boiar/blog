@@ -11,9 +11,9 @@ import {
   Tab,
 } from "@mui/material";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
-import EditUserInformation from "../components/EditUserInformation";
-import UpdateUserAvatar from "../components/UpdateUserAvatar";
-import ChangeUserPassword from "../components/ChangeUserPassword";
+import { EditUserInformation } from "../components/EditUserInformation";
+import { UpdateUserAvatar } from "../components/UpdateUserAvatar";
+import { ChangeUserPassword } from "../components/ChangeUserPassword";
 import { drawerWidth } from "../helpers/constants";
 
 export const EditProfilePage = () => {

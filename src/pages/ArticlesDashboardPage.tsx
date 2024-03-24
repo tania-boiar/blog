@@ -1,5 +1,5 @@
+import React from "react";
 import { NavLink } from "react-router-dom";
-import EastIcon from '@mui/icons-material/East';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import { 
   Container,
@@ -8,15 +8,11 @@ import {
   CssBaseline,
   Typography,
   Toolbar,
-  Avatar,
   Button,
   IconButton,
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
   FormControl,
-  MenuItem
+  MenuItem,
+  ThemeProvider
 } from "@mui/material";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import {
@@ -28,9 +24,9 @@ import {
 import { Add } from "@mui/icons-material";
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { drawerWidth } from "../helpers/constants";
-import React from "react";
-
-const cards = [1, 2, 3, 4, 5, 6, 7, 8];
+import { defaultTheme } from "../theme";
+import { ArticleCard } from "../components/ArticleCard";
+import cards from "../helpers/data.json";
 
 export const ArticlesDashboardPage = () => {
   const [category, setCategory] = React.useState('');
@@ -40,7 +36,7 @@ export const ArticlesDashboardPage = () => {
   };
 
   return (
-    <>
+    <ThemeProvider theme={defaultTheme}>
       <Box
         component="main"
         sx={{
@@ -52,9 +48,9 @@ export const ArticlesDashboardPage = () => {
         }}
       >
         <Toolbar />
-        <Grid container justifyContent="space-between">
+        <Grid container justifyContent="space-between" alignItems="center">
 
-        <Grid item xs={12} lg={8}
+        <Grid item xs={12} md={8}
             sx={{
               display: "flex",
               flexDirection: "row",
@@ -69,73 +65,76 @@ export const ArticlesDashboardPage = () => {
                   color: "#1A1E2C",
                   fontSize: "21px",
                   fontWeight: "700",
-                  mb: 2,
                   mr: 6,
                 }}
               >
                   Articles Dashboard
               </Typography>
             
-
-              <Box
+              <Grid item xs={12} lg={8}
                 sx={{
                   display: "flex",
                   flexDirection: "row",
+                  justifyContent: "space-between",
                   alignItems: "center",
                 }}
               >
-              <Typography component="h1"
+                <Box
                   sx={{
-                    paddingLeft: "8px",
-                    color: "#6F7C8B",
-                    fontSize: "14px",
-                    fontWeight: "700",
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
                   }}
                 >
-                    Show:
-                </Typography>
-              <FormControl sx={{ m: 1, minWidth: 170 }}>
-                <Select
-                  value={category}
-                  onChange={handleChange}
-                  displayEmpty
-                  inputProps={{ 'aria-label': 'Without label' }}
-                >
-                  <MenuItem value="">All categories
-                  </MenuItem>
-                  <MenuItem value="productivity">Productivity</MenuItem>
-                </Select>
-              </FormControl>
-              </Box>
+                  <Typography component="h1"
+                      sx={{
+                        paddingLeft: "8px",
+                        color: "#6F7C8B",
+                        fontSize: "14px",
+                        fontWeight: "700",
+                      }}
+                    >
+                        Show:
+                  </Typography>
+                  <FormControl variant="standard" sx={{ m: 1, minWidth: 170}}>
+                    <Select
+                      value={category}
+                      onChange={handleChange}
+                      displayEmpty
+                      inputProps={{ 'aria-label': 'Without label' }}
+                      sx={{ color: "#1A1E2C", fontWeight: 500 }}
+                    >
+                      <MenuItem value="">All categories
+                      </MenuItem>
+                      <MenuItem value="productivity">Productivity</MenuItem>
+                    </Select>
+                  </FormControl>
+                </Box>
+
+
+                <FormControl sx={{ m: 1, minWidth: 200 }}>
+                  <Select
+                    value={category}
+                    onChange={handleChange}
+                    displayEmpty
+                    inputProps={{ 'aria-label': 'Without label' }}
+                    sx={{ height: "36.5px", p: "6px 0"}}
+                    
+                  >
+                    <MenuItem value="">Sort by: Ascending
+                    </MenuItem>
+                    <MenuItem value="productivity">Sort by: Descending</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
             </Grid>
-
-
-            <FormControl sx={{ m: 1, minWidth: 200, mr: "36px" }}>
-              <Select
-                value={category}
-                onChange={handleChange}
-                displayEmpty
-                inputProps={{ 'aria-label': 'Without label' }}
-              >
-                <MenuItem value="">Sort by: Ascending
-                </MenuItem>
-                <MenuItem value="productivity">Sort by: Descending</MenuItem>
-              </Select>
-            </FormControl>
           </Grid>
 
           <NavLink to="/add-article">
             <Button
               variant="contained"
               startIcon={<Add />}
-              sx={{
-                bgcolor: "#4C6FFF",
-                borderRadius: "3px",
-                minWidth: "186px",
-                boxShadow: "none",
-                textTransform: "capitalize",
-                fontWeight: "500",
-              }}
+              sx={{ minWidth: "186px", height: "38px"}}
             >
               Add article
             </Button>
@@ -148,45 +147,7 @@ export const ArticlesDashboardPage = () => {
             <Container sx={{ pb: 4, pt: 1, ml: "-16px" }} maxWidth="lg">
               <Grid container spacing={4}>
                 {cards.map((card) => (
-                  <Grid item key={card} xs={12} sm={12} md={6}>
-                    <Card
-                      sx={{ height: '100%', display: 'flex', flexDirection: 'column', borderRadius: '6px'}}
-                    >
-                      <CardMedia
-                        component="div"
-                        sx={{
-                          // 16:9
-                          pt: '42%',
-                        }}
-                        image="https://source.unsplash.com/random?wallpapers"
-                      />
-                      <CardContent sx={{ flexGrow: 1, px: "24px" }}>
-                        <Box sx={{ display: "flex", justifyContent: "space-between"}}>
-                          <Typography variant="overline" color={"#6E798C"}>
-                            Productivity
-                          </Typography>
-                          <Typography variant="overline" color={"#6E798C"}>
-                            3 days ago
-                          </Typography>
-                        </Box>
-                        <Typography gutterBottom variant="h5" component="h2" color={"##081F32"} fontWeight={500}>
-                        7 Skills of Highly Effective Programmers
-                        </Typography>
-                        <Typography color={"#374A59"}>
-                          Our team was inspired by the seven skills of highly effective programmers created by the TechLead. We wanted to provide our own take on the topic...
-                        </Typography>
-                      </CardContent>
-                      <CardActions sx={{ justifyContent: "space-between", pb: "16px", pl: "16px", pr: "24px", pt: "0px" }}>
-                        <Button size="small" sx={{ pr: "10px", textTransform: "none", color: "#4C6FFF"}}>
-                          <Avatar alt="Glen Williams" src="./assets/images/glen-williams.png" sx={{ mr: "8px" }} />
-                          Glen Williams
-                        </Button>
-                        <Button size="small" sx={{ py: "12px", px: "8px", textTransform: "none", color: "#4C6FFF" }}>Read more
-                        <EastIcon fontSize="small" sx={{ pl: "4px"}}/>
-                        </Button>
-                      </CardActions>
-                    </Card>
-                  </Grid>
+                  <ArticleCard key={card.id} card={card}/>
                 ))}
               </Grid>
             </Container>
@@ -199,7 +160,7 @@ export const ArticlesDashboardPage = () => {
             md={4}
           >
             <MDBContainer className="d-flex justify-content-end"
-              style={{ paddingRight: "0px", marginTop: "32px"}}>
+              style={{ paddingRight: "0px", marginTop: "10px"}}>
               <MDBCard
                 style={{
                   color: "#4B515D",
@@ -248,6 +209,6 @@ export const ArticlesDashboardPage = () => {
           </Grid>
         </Grid>
       </Box>
-    </>
+    </ThemeProvider>
   );
 };
