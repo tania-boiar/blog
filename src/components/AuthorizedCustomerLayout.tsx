@@ -19,7 +19,7 @@ import {
   Toolbar,
   Typography,
   alpha,
-  styled
+  styled,
 } from "@mui/material";
 import LogoutIcon from "@mui/icons-material/Logout";
 import AvTimerIcon from "@mui/icons-material/AvTimer";
@@ -130,7 +130,7 @@ export const AuthorizedCustomerLayout: React.FC<Props> = (props) => {
         <ListItem>
           <NavLink to="/sign-in">
             <Button
-              variant="contained"
+              variant="outlined"
               startIcon={<LogoutIcon />}
               sx={{
                 bgcolor: "#F5F6F7",
@@ -140,6 +140,7 @@ export const AuthorizedCustomerLayout: React.FC<Props> = (props) => {
                 boxShadow: "none",
                 textTransform: "capitalize",
                 fontWeight: "500",
+                borderColor: "#F5F6F7",
               }}
             >
               Logout

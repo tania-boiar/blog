@@ -1,8 +1,19 @@
 import * as React from "react";
 import { NavLink } from "react-router-dom";
-import { Button, CssBaseline, TextField, Paper, Box, Grid, Typography, Checkbox, FormControlLabel } from "@mui/material";
+import {
+  Button,
+  CssBaseline,
+  TextField,
+  Paper,
+  Box,
+  Grid,
+  Typography,
+  Checkbox,
+  FormControlLabel,
+} from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import { defaultTheme } from "../theme";
+import { SocialButton, SpacedButtonsContainer } from "../components/SocialButton";
 
 export const SignUpPage: React.FC = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -211,47 +222,25 @@ export const SignUpPage: React.FC = () => {
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                alignSelf: "center",
-                alignItems: "center",  
+                alignItems: "center",
+                alignSelf: "center"
               }}
             >
-              <Grid container justifyContent={"center"}>
-                <Grid item sx={{ mb: "16px"
-                }}
-              >{"Or sign up with"}</Grid>
-              </Grid>
-              <Grid
-                item
-                sx={{
-                  display: "flex",
-                }}
-              >
-                <div
-                  style={{
-                    border: "1px solid #fff",
-                    borderRadius: "6px",
-                    padding: "12px 23px",
-                    boxShadow: "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px",
-                    marginRight: "20px",
-                  }}
-                >
-                  <a href="#">
-                    <img src="./assets/icons/google.svg" />
-                  </a>
-                </div>
-                <div
-                  style={{
-                    border: "1px solid #fff",
-                    borderRadius: "6px",
-                    padding: "12px 23px",
-                    boxShadow: "rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px",
-                  }}
-                >
-                  <a href="#">
-                    <img src="./assets/icons/facebook.svg" />
-                  </a>
-                </div>
-              </Grid>
+                <Box mb={2}>{"Or sign up with"}</Box>
+                <SpacedButtonsContainer>
+                  <SocialButton
+                    href="#"
+                    iconSrc="./assets/icons/google.svg"
+                    altText="Google Sing Up"
+                    onClick={() => console.log("Google Sing Up button clicked")}
+                  />
+                  <SocialButton
+                    href="#"
+                    iconSrc="./assets/icons/facebook.svg"
+                    altText="Facebook Sing Up"
+                    onClick={() => console.log("Facebook Sing Up button clicked")}
+                  />
+                </SpacedButtonsContainer>
             </Box>
 
             <Grid

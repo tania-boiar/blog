@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
-import { 
+import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
+import {
   Container,
   Grid,
   Box,
@@ -12,7 +12,7 @@ import {
   IconButton,
   FormControl,
   MenuItem,
-  ThemeProvider
+  ThemeProvider,
 } from "@mui/material";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import {
@@ -22,17 +22,22 @@ import {
   MDBTypography,
 } from "mdb-react-ui-kit";
 import { Add } from "@mui/icons-material";
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { drawerWidth } from "../helpers/constants";
 import { defaultTheme } from "../theme";
 import { ArticleCard } from "../components/ArticleCard";
 import cards from "../helpers/data.json";
 
 export const ArticlesDashboardPage = () => {
-  const [category, setCategory] = React.useState('');
+  const [category, setCategory] = React.useState("");
+  const [sortOrder, setSortOrder] = React.useState("");
 
-  const handleChange = (event: SelectChangeEvent) => {
+  const handleCategoryChange = (event: SelectChangeEvent) => {
     setCategory(event.target.value);
+  };
+
+  const handleOrderChange = (event: SelectChangeEvent) => {
+    setSortOrder(event.target.value);
   };
 
   return (
@@ -48,97 +53,135 @@ export const ArticlesDashboardPage = () => {
         }}
       >
         <Toolbar />
-        <Grid container justifyContent="space-between" alignItems="center">
 
-        <Grid item xs={12} md={8}
+        <Grid
+          container
+          direction={"row"}
+          alignItems={"center"}
+          justifyContent="space-between"
+          sx={{
+            marginLeft: {
+              sm: "8px",
+            },
+          }}
+        >
+          <Grid
+            xs={12}
+            lg={8}
             sx={{
               display: "flex",
-              flexDirection: "row",
+              alignItems: {
+                lg: "center",
+              },
               justifyContent: "space-between",
-              alignItems: "center",
+              flexDirection: {
+                xs: "column",
+                lg: "row",
+              },
             }}
+            style={{maxWidth: "1200px"}}
           >
-            <Grid container direction={"row"} alignItems={"center"}>
-              <Typography component="h1"
+            <Grid
+              sx={{
+                display: "flex",
+                alignItems: {
+                  lg: "center",
+                },
+
+                flexDirection: {
+                  xs: "column",
+                  lg: "row",
+                },
+              }}
+            >
+              <Typography
+                component="h1"
                 sx={{
-                  paddingLeft: "8px",
+                  // paddingLeft: "8px",
                   color: "#1A1E2C",
                   fontSize: "21px",
                   fontWeight: "700",
-                  mr: 6,
+                  mr: 3,
+                  mb: 2,
                 }}
               >
-                  Articles Dashboard
+                Articles Dashboard
               </Typography>
-            
-              <Grid item xs={12} lg={8}
+
+              <Box
                 sx={{
                   display: "flex",
                   flexDirection: "row",
-                  justifyContent: "space-between",
                   alignItems: "center",
+                  mb: 2,
+                  mr: 1,
                 }}
               >
-                <Box
+                <Typography
+                  component="h1"
                   sx={{
-                    display: "flex",
-                    flexDirection: "row",
-                    alignItems: "center",
+                    // paddingLeft: "8px",
+                    color: "#6F7C8B",
+                    fontSize: "14px",
+                    fontWeight: "700",
                   }}
                 >
-                  <Typography component="h1"
-                      sx={{
-                        paddingLeft: "8px",
-                        color: "#6F7C8B",
-                        fontSize: "14px",
-                        fontWeight: "700",
-                      }}
-                    >
-                        Show:
-                  </Typography>
-                  <FormControl variant="standard" sx={{ m: 1, minWidth: 170}}>
-                    <Select
-                      value={category}
-                      onChange={handleChange}
-                      displayEmpty
-                      inputProps={{ 'aria-label': 'Without label' }}
-                      sx={{ color: "#1A1E2C", fontWeight: 500 }}
-                    >
-                      <MenuItem value="">All categories
-                      </MenuItem>
-                      <MenuItem value="productivity">Productivity</MenuItem>
-                    </Select>
-                  </FormControl>
-                </Box>
-
-
-                <FormControl sx={{ m: 1, minWidth: 200 }}>
+                  Show:
+                </Typography>
+                <FormControl variant="standard" sx={{ m: 1, minWidth: 170 }}>
                   <Select
                     value={category}
-                    onChange={handleChange}
+                    onChange={handleCategoryChange}
                     displayEmpty
-                    inputProps={{ 'aria-label': 'Without label' }}
-                    sx={{ height: "36.5px", p: "6px 0"}}
-                    
+                    inputProps={{ "aria-label": "Without label" }}
+                    sx={{ color: "#1A1E2C", fontWeight: 500 }}
                   >
-                    <MenuItem value="">Sort by: Ascending
-                    </MenuItem>
-                    <MenuItem value="productivity">Sort by: Descending</MenuItem>
+                    <MenuItem value="">All categories</MenuItem>
+                    <MenuItem value="productivity">Productivity</MenuItem>
                   </Select>
                 </FormControl>
-              </Grid>
+              </Box>
             </Grid>
+
+            <FormControl sx={{ minWidth: 200, maxWidth: 220, mb: 2, mr: 6 }}>
+              <Select
+                value={sortOrder}
+                onChange={handleOrderChange}
+                displayEmpty
+                inputProps={{ "aria-label": "Without label" }}
+                sx={{ height: "36.5px", p: "6px 0" }}
+              >
+                <MenuItem value="">Sort by: Ascending</MenuItem>
+                <MenuItem value="descending">Sort by: Descending</MenuItem>
+              </Select>
+            </FormControl>
           </Grid>
 
-          <NavLink to="/add-article">
-            <Button
-              variant="contained"
-              startIcon={<Add />}
-              sx={{ minWidth: "186px", height: "38px"}}
-            >
-              Add article
-            </Button>
-          </NavLink>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              mb: 2,
+              // ml: "8px"
+            }}
+          >
+            <NavLink to="/add-article">
+              <Button
+                variant="contained"
+                startIcon={<Add />}
+                sx={{
+                  minWidth: {
+                    xs: "220px",
+                    md: "186px",
+                  },
+                  height: "38px",
+                }}
+              >
+                Add article
+              </Button>
+            </NavLink>
+          </Box>
         </Grid>
 
         <Grid container justifyContent="space-between">
@@ -147,20 +190,23 @@ export const ArticlesDashboardPage = () => {
             <Container sx={{ pb: 4, pt: 1, ml: "-16px" }} maxWidth="lg">
               <Grid container spacing={4}>
                 {cards.map((card) => (
-                  <ArticleCard key={card.id} card={card}/>
+                  <ArticleCard key={card.id} card={card} />
                 ))}
               </Grid>
             </Container>
           </Grid>
 
-          <Grid item 
+          <Grid
+            item
             sx={{
               display: { xs: "none", lg: "block" },
             }}
             md={4}
           >
-            <MDBContainer className="d-flex justify-content-end"
-              style={{ paddingRight: "0px", marginTop: "10px"}}>
+            <MDBContainer
+              className="d-flex justify-content-end"
+              style={{ paddingRight: "0px", marginTop: "10px" }}
+            >
               <MDBCard
                 style={{
                   color: "#4B515D",
@@ -170,9 +216,12 @@ export const ArticlesDashboardPage = () => {
                   justifySelf: "flex-end",
                 }}
               >
-                <MDBCardBody className="p-4" style={{color: "#6E798C"}}>
+                <MDBCardBody className="p-4" style={{ color: "#6E798C" }}>
                   <div className="d-flex">
-                    <MDBTypography tag="h6" className="flex-grow-1 text-uppercase pt-2" >
+                    <MDBTypography
+                      tag="h6"
+                      className="flex-grow-1 text-uppercase pt-2"
+                    >
                       Weather widget
                     </MDBTypography>
                     <IconButton>
@@ -188,9 +237,12 @@ export const ArticlesDashboardPage = () => {
                         style={{ color: "#2E384D", fontWeight: "500" }}
                       >
                         {" "}
-                        13<span style={{ fontSize: "40px" }}><sup>°C</sup></span>{" "}
+                        13
+                        <span style={{ fontSize: "40px" }}>
+                          <sup>°C</sup>
+                        </span>{" "}
                       </MDBTypography>
-                    
+
                       <span className="small" style={{ color: "#374A59" }}>
                         Lviv, Ukraine
                       </span>
