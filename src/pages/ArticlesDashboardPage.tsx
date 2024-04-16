@@ -1,6 +1,6 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import {
   Container,
   Grid,
@@ -13,24 +13,19 @@ import {
   FormControl,
   MenuItem,
   ThemeProvider,
-} from "@mui/material";
-import "mdb-react-ui-kit/dist/css/mdb.min.css";
-import {
-  MDBCard,
-  MDBCardBody,
-  MDBContainer,
-  MDBTypography,
-} from "mdb-react-ui-kit";
-import { Add } from "@mui/icons-material";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { drawerWidth } from "../helpers/constants";
-import { defaultTheme } from "../theme";
-import { ArticleCard } from "../components/ArticleCard";
-import cards from "../helpers/data.json";
+} from '@mui/material';
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import { MDBCard, MDBCardBody, MDBContainer, MDBTypography } from 'mdb-react-ui-kit';
+import { Add } from '@mui/icons-material';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { drawerWidth } from '../helpers/constants';
+import { defaultTheme } from '../theme';
+import { ArticleCard } from '../components/ArticleCard';
+import cards from '../helpers/data.json';
 
 export const ArticlesDashboardPage = () => {
-  const [category, setCategory] = React.useState("");
-  const [sortOrder, setSortOrder] = React.useState("");
+  const [category, setCategory] = React.useState('');
+  const [sortOrder, setSortOrder] = React.useState('');
 
   const handleCategoryChange = (event: SelectChangeEvent) => {
     setCategory(event.target.value);
@@ -47,8 +42,8 @@ export const ArticlesDashboardPage = () => {
         sx={{
           flexGrow: 1,
           p: 4,
-          bgcolor: "#F5F6F7",
-          minHeight: "100vh",
+          bgcolor: '#F5F6F7',
+          minHeight: '100vh',
           width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}
       >
@@ -56,12 +51,12 @@ export const ArticlesDashboardPage = () => {
 
         <Grid
           container
-          direction={"row"}
-          alignItems={"center"}
+          direction={'row'}
+          alignItems={'center'}
           justifyContent="space-between"
           sx={{
             marginLeft: {
-              sm: "8px",
+              sm: '8px',
             },
           }}
         >
@@ -69,40 +64,39 @@ export const ArticlesDashboardPage = () => {
             xs={12}
             lg={8}
             sx={{
-              display: "flex",
+              display: 'flex',
               alignItems: {
-                lg: "center",
+                lg: 'center',
               },
-              justifyContent: "space-between",
+              justifyContent: 'space-between',
               flexDirection: {
-                xs: "column",
-                lg: "row",
+                xs: 'column',
+                lg: 'row',
               },
             }}
-            style={{maxWidth: "1200px"}}
+            style={{ maxWidth: '1200px' }}
           >
             <Grid
               sx={{
-                display: "flex",
+                display: 'flex',
                 alignItems: {
-                  lg: "center",
+                  lg: 'center',
                 },
 
                 flexDirection: {
-                  xs: "column",
-                  lg: "row",
+                  xs: 'column',
+                  lg: 'row',
                 },
               }}
             >
               <Typography
                 component="h1"
+                fontSize={'21px'}
+                fontWeight={700}
                 sx={{
-                  // paddingLeft: "8px",
-                  color: "#1A1E2C",
-                  fontSize: "21px",
-                  fontWeight: "700",
                   mr: 3,
                   mb: 2,
+                  color: '#1A1E2C',
                 }}
               >
                 Articles Dashboard
@@ -110,9 +104,9 @@ export const ArticlesDashboardPage = () => {
 
               <Box
                 sx={{
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
+                  display: 'flex',
+                  flexDirection: 'row',
+                  alignItems: 'center',
                   mb: 2,
                   mr: 1,
                 }}
@@ -120,10 +114,9 @@ export const ArticlesDashboardPage = () => {
                 <Typography
                   component="h1"
                   sx={{
-                    // paddingLeft: "8px",
-                    color: "#6F7C8B",
-                    fontSize: "14px",
-                    fontWeight: "700",
+                    color: '#6F7C8B',
+                    fontSize: '14px',
+                    fontWeight: '700',
                   }}
                 >
                   Show:
@@ -133,8 +126,8 @@ export const ArticlesDashboardPage = () => {
                     value={category}
                     onChange={handleCategoryChange}
                     displayEmpty
-                    inputProps={{ "aria-label": "Without label" }}
-                    sx={{ color: "#1A1E2C", fontWeight: 500 }}
+                    inputProps={{ 'aria-label': 'Without label' }}
+                    sx={{ fontWeight: 500, color: '#1A1E2C' }}
                   >
                     <MenuItem value="">All categories</MenuItem>
                     <MenuItem value="productivity">Productivity</MenuItem>
@@ -148,8 +141,8 @@ export const ArticlesDashboardPage = () => {
                 value={sortOrder}
                 onChange={handleOrderChange}
                 displayEmpty
-                inputProps={{ "aria-label": "Without label" }}
-                sx={{ height: "36.5px", p: "6px 0" }}
+                inputProps={{ 'aria-label': 'Without label' }}
+                sx={{ height: '36.5px', p: '6px 0' }}
               >
                 <MenuItem value="">Sort by: Ascending</MenuItem>
                 <MenuItem value="descending">Sort by: Descending</MenuItem>
@@ -159,11 +152,10 @@ export const ArticlesDashboardPage = () => {
 
           <Box
             sx={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
               mb: 2,
-              // ml: "8px"
             }}
           >
             <NavLink to="/add-article">
@@ -172,10 +164,10 @@ export const ArticlesDashboardPage = () => {
                 startIcon={<Add />}
                 sx={{
                   minWidth: {
-                    xs: "220px",
-                    md: "186px",
+                    xs: '220px',
+                    md: '186px',
                   },
-                  height: "38px",
+                  height: '38px',
                 }}
               >
                 Add article
@@ -187,7 +179,7 @@ export const ArticlesDashboardPage = () => {
         <Grid container justifyContent="space-between">
           <CssBaseline />
           <Grid item xs={12} lg={8}>
-            <Container sx={{ pb: 4, pt: 1, ml: "-16px" }} maxWidth="lg">
+            <Container sx={{ pb: 4, pt: 1, ml: '-16px' }} maxWidth="lg">
               <Grid container spacing={4}>
                 {cards.map((card) => (
                   <ArticleCard key={card.id} card={card} />
@@ -197,31 +189,28 @@ export const ArticlesDashboardPage = () => {
           </Grid>
 
           <Grid
-            item
+            container
             sx={{
-              display: { xs: "none", lg: "block" },
+              display: { xs: 'none', lg: 'block' },
             }}
             md={4}
           >
             <MDBContainer
               className="d-flex justify-content-end"
-              style={{ paddingRight: "0px", marginTop: "10px" }}
+              style={{ paddingRight: '0px', marginTop: '10px' }}
             >
               <MDBCard
                 style={{
-                  color: "#4B515D",
-                  borderRadius: "6px",
-                  backgroundColor: "#fff",
-                  minWidth: "280px",
-                  justifySelf: "flex-end",
+                  color: '#4B515D',
+                  borderRadius: '6px',
+                  backgroundColor: '#fff',
+                  minWidth: '280px',
+                  justifySelf: 'flex-end',
                 }}
               >
-                <MDBCardBody className="p-4" style={{ color: "#6E798C" }}>
+                <MDBCardBody className="p-4" style={{ color: '#6E798C' }}>
                   <div className="d-flex">
-                    <MDBTypography
-                      tag="h6"
-                      className="flex-grow-1 text-uppercase pt-2"
-                    >
+                    <MDBTypography tag="h6" className="flex-grow-1 text-uppercase pt-2">
                       Weather widget
                     </MDBTypography>
                     <IconButton>
@@ -233,17 +222,17 @@ export const ArticlesDashboardPage = () => {
                     <div className="d-flex flex-column mt-4 mb-3">
                       <MDBTypography
                         tag="h6"
-                        className="display-4 mb-0 font-weight-bold"
-                        style={{ color: "#2E384D", fontWeight: "500" }}
+                        className="display-4 mb-0"
+                        style={{ color: '#2E384D', fontWeight: 500 }}
                       >
-                        {" "}
+                        {' '}
                         13
-                        <span style={{ fontSize: "40px" }}>
+                        <span style={{ fontSize: '40px' }}>
                           <sup>°C</sup>
-                        </span>{" "}
+                        </span>{' '}
                       </MDBTypography>
 
-                      <span className="small" style={{ color: "#374A59" }}>
+                      <span className="small" style={{ color: '#374A59' }}>
                         Lviv, Ukraine
                       </span>
                     </div>

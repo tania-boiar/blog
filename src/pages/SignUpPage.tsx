@@ -1,5 +1,4 @@
-import * as React from "react";
-import { NavLink } from "react-router-dom";
+import * as React from 'react';
 import {
   Button,
   CssBaseline,
@@ -10,38 +9,36 @@ import {
   Typography,
   Checkbox,
   FormControlLabel,
-} from "@mui/material";
-import { ThemeProvider } from "@mui/material/styles";
-import { defaultTheme } from "../theme";
-import { SocialButton, SpacedButtonsContainer } from "../components/SocialButton";
+} from '@mui/material';
+import { ThemeProvider } from '@mui/material/styles';
+import { CustomLink, SpacedButtonsContainer, StyledLabel, defaultTheme } from '../theme';
+import { SocialButton } from '../components/SocialButton';
 
 export const SignUpPage: React.FC = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      email: data.get("email"),
-      password: data.get("password"),
+      email: data.get('email'),
+      password: data.get('password'),
     });
   };
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Grid container component="main" sx={{ height: "100vh" }}>
+      <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
         <Grid
           item
           xs={false}
           sm={5}
           sx={{
-            backgroundImage: "url(./assets/images/signup.png)",
-            backgroundRepeat: "no-repeat",
+            backgroundImage: 'url(./assets/images/signup.png)',
+            backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
-              t.palette.mode === "light"
-                ? t.palette.grey[50]
-                : t.palette.grey[900],
-            backgroundSize: "cover",
-            backgroundPosition: "center",
+              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
           }}
         />
         <Grid
@@ -52,56 +49,35 @@ export const SignUpPage: React.FC = () => {
           elevation={6}
           square
           sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            color: "#6F7C8B",
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            color: '#6F7C8B',
           }}
         >
           <Box
             sx={{
               my: 8,
               mx: 4,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "start",
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'start',
             }}
           >
             <Typography
               component="h1"
               variant="h5"
-              sx={{ mt: 5, fontWeight: "700", color: "#1A1E2C" }}
+              sx={{ mt: 5, fontWeight: '700', color: '#1A1E2C' }}
             >
               Get started today
             </Typography>
-            <Typography component="p" sx={{ mt: 1, color: "#1A1E2C" }}>
+            <Typography component="p" sx={{ mt: 1, color: '#1A1E2C' }}>
               Enter your details to create super account
             </Typography>
-            <Box
-              component="form"
-              noValidate
-              onSubmit={handleSubmit}
-              sx={{ mt: 4 }}
-            >
-              <Grid
-                item
-                sx={
-                  {
-                    // display: "flex",
-                  }
-                }
-              >
-                <Grid
-                  item
-                  sx={
-                    {
-                      // display: "flex",
-                    }
-                  }
-                >
-                  <label htmlFor="name" style={{ fontWeight: "500" }}>
-                    Name
-                  </label>
+            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 4 }}>
+              <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                  <StyledLabel htmlFor="name">Name</StyledLabel>
                   <TextField
                     sx={{ mt: 1 }}
                     margin="normal"
@@ -114,17 +90,8 @@ export const SignUpPage: React.FC = () => {
                     autoFocus
                   />
                 </Grid>
-                <Grid
-                  item
-                  sx={
-                    {
-                      // display: "flex",
-                    }
-                  }
-                >
-                  <label htmlFor="name" style={{ fontWeight: "500" }}>
-                    Age
-                  </label>
+                <Grid item xs={12} sm={6}>
+                  <StyledLabel htmlFor="name">Age</StyledLabel>
                   <TextField
                     sx={{ mt: 1 }}
                     margin="normal"
@@ -141,9 +108,7 @@ export const SignUpPage: React.FC = () => {
 
               {/* <InputLabel key="email" sx={{ mb: -1}}>Email Address</InputLabel> */}
               <Grid item>
-                <label htmlFor="email" style={{ fontWeight: "500" }}>
-                  Email Address
-                </label>
+                <StyledLabel htmlFor="email">Email Address</StyledLabel>
                 <TextField
                   sx={{ mt: 1 }}
                   margin="normal"
@@ -159,9 +124,7 @@ export const SignUpPage: React.FC = () => {
               {/* <InputLabel key="password" sx={{ mb: -1}}>Password</InputLabel> */}
 
               <Grid item>
-                <label htmlFor="password" style={{ fontWeight: "500" }}>
-                  Password
-                </label>
+                <StyledLabel htmlFor="password">Password</StyledLabel>
                 <TextField
                   sx={{ mt: 1 }}
                   margin="normal"
@@ -176,9 +139,7 @@ export const SignUpPage: React.FC = () => {
               </Grid>
               {/* <label htmlFor="confirm-password">Confirm New Password</label> */}
               <Grid item>
-                <label htmlFor="confirm-password" style={{ fontWeight: "500" }}>
-                  Confirm New Password
-                </label>
+                <StyledLabel htmlFor="confirm-password">Confirm New Password</StyledLabel>
                 <TextField
                   sx={{ mt: 1 }}
                   margin="normal"
@@ -191,72 +152,60 @@ export const SignUpPage: React.FC = () => {
                   autoComplete="current-password"
                 />
               </Grid>
-              <Box display="flex" flexDirection={"column"}>
-                <FormControlLabel
-                  required
-                  control={<Checkbox />}
-                  label="I agree to Product"
-                />
-                <NavLink
+              <Box display="flex" flexDirection={'column'}>
+                <FormControlLabel required control={<Checkbox />} label="I agree to Product" />
+                <CustomLink
                   to="/terms"
-                  style={{
-                    marginLeft: "32px",
-                    marginTop: "-10px",
-                    color: "#4C6FFF",
-                    fontWeight: "500",
+                  sx={{
+                    fontWeight: '600',
+                    marginTop: '-10px',
+                    marginLeft: '32px',
                   }}
                 >
                   Terms and Policy
-                </NavLink>
+                </CustomLink>
               </Box>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
+              <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
                 Get started now
               </Button>
             </Box>
             <Box
               sx={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                alignSelf: "center"
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                alignSelf: 'center',
               }}
             >
-                <Box mb={2}>{"Or sign up with"}</Box>
-                <SpacedButtonsContainer>
-                  <SocialButton
-                    href="#"
-                    iconSrc="./assets/icons/google.svg"
-                    altText="Google Sing Up"
-                    onClick={() => console.log("Google Sing Up button clicked")}
-                  />
-                  <SocialButton
-                    href="#"
-                    iconSrc="./assets/icons/facebook.svg"
-                    altText="Facebook Sing Up"
-                    onClick={() => console.log("Facebook Sing Up button clicked")}
-                  />
-                </SpacedButtonsContainer>
+              <Box mb={2}>{'Or sign up with'}</Box>
+              <SpacedButtonsContainer>
+                <SocialButton
+                  href="#"
+                  iconSrc="./assets/icons/google.svg"
+                  altText="Google Sing Up"
+                  onClick={() => console.log('Google Sing Up button clicked')}
+                />
+                <SocialButton
+                  href="#"
+                  iconSrc="./assets/icons/facebook.svg"
+                  altText="Facebook Sing Up"
+                  onClick={() => console.log('Facebook Sing Up button clicked')}
+                />
+              </SpacedButtonsContainer>
             </Box>
 
             <Grid
               container
               sx={{
-                position: "relative",
-                bottom: "-46px",
-                justifyContent: "center",
+                position: 'relative',
+                bottom: '-46px',
+                justifyContent: 'center',
               }}
             >
-              <Grid item pr={"5px"}>
-                {"Already have an account? "}
+              <Grid item pr={'5px'}>
+                {'Already have an account? '}
               </Grid>
-              <NavLink to="/sign-in" style={{ color: "#4C6FFF" }}>
-                Login
-              </NavLink>
+              <CustomLink to="/sign-in">Login</CustomLink>
             </Grid>
           </Box>
         </Grid>

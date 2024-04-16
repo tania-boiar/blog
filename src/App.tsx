@@ -10,7 +10,6 @@ import { ArticlesDashboardPage } from './pages/ArticlesDashboardPage';
 import { CreateArticlePage } from './pages/CreateArticlePage';
 import { AuthorizedCustomerLayout } from './components/AuthorizedCustomerLayout';
 
-
 export const App: React.FC = () => {
   return (
     <div className="flex-wrapper">
@@ -23,9 +22,9 @@ export const App: React.FC = () => {
           <Route path="forgot-password" element={<ForgotPasswordPage />} />
           <Route path="terms" element={<TermsPage />} />
           <Route path="/" element={<AuthorizedCustomerLayout />}>
-            <Route path="edit-profile" element={< EditProfilePage/>} />
-            <Route path="/articles" element={< ArticlesDashboardPage/>} />
-            <Route path="add-article" element={< CreateArticlePage/>} />
+            <Route path="edit-profile" element={<EditProfilePage />} />
+            <Route path="/articles" element={<ArticlesDashboardPage />} />
+            <Route path="add-article" element={<CreateArticlePage />} />
           </Route>
         </Routes>
       </main>

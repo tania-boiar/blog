@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 import {
   Paper,
   Grid,
@@ -8,19 +8,19 @@ import {
   Button,
   TextField,
   ThemeProvider,
-} from "@mui/material";
-import "mdb-react-ui-kit/dist/css/mdb.min.css";
-import { DragAndDropUploadField } from "../components/DragAndDropUploadField copy";
-import { drawerWidth } from "../helpers/constants";
-import { defaultTheme } from "../theme";
+} from '@mui/material';
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import { DragAndDropUploadField } from '../components/DragAndDropUploadField';
+import { drawerWidth } from '../helpers/constants';
+import { StyledLabel, defaultTheme } from '../theme';
 
 export const CreateArticlePage = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      email: data.get("email"),
-      password: data.get("password"),
+      email: data.get('email'),
+      password: data.get('password'),
     });
   };
 
@@ -31,13 +31,13 @@ export const CreateArticlePage = () => {
         sx={{
           flexGrow: 1,
           p: 4,
-          bgcolor: "#F5F6F7",
-          minHeight: "100vh",
+          bgcolor: '#F5F6F7',
+          minHeight: '100vh',
           width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}
       >
         <Toolbar />
-        <Grid container justifyContent={"center"}>
+        <Grid container justifyContent={'center'}>
           <Grid
             item
             xs={12}
@@ -47,41 +47,36 @@ export const CreateArticlePage = () => {
             elevation={6}
             square
             sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              color: "#6F7C8B",
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              color: '#6F7C8B',
             }}
           >
             <Box
               sx={{
                 my: 4,
                 mx: 4,
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "start",
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'start',
               }}
             >
-              <Box sx={{ borderBottom: "solid 1px #EAEDF3", width: "100%" }}>
+              <Box sx={{ borderBottom: 'solid 1px #EAEDF3', width: '100%' }}>
                 <Typography
                   component="h1"
                   variant="h5"
-                  sx={{ fontWeight: "700", color: "#1A1E2C", pb: 4 }}
+                  fontWeight={700}
+                  pb={4}
+                  sx={{ color: '#1A1E2C' }}
                 >
                   Add a new article
                 </Typography>
               </Box>
 
-              <Box
-                component="form"
-                noValidate
-                onSubmit={handleSubmit}
-                sx={{ mt: 4 }}
-              >
+              <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 4 }}>
                 {/* <InputLabel key="email" sx={{ mb: -1}}>Email Address</InputLabel> */}
-                <label htmlFor="title" style={{ fontWeight: "500" }}>
-                  Title
-                </label>
+                <StyledLabel htmlFor="title">Title</StyledLabel>
                 <TextField
                   sx={{ mt: 1 }}
                   margin="normal"
@@ -93,12 +88,9 @@ export const CreateArticlePage = () => {
                   autoFocus
                 />
                 {/* <InputLabel key="password" sx={{ mb: -1}}>Password</InputLabel> */}
-                <label
-                  htmlFor="text"
-                  style={{ fontWeight: "500", marginTop: "20px" }}
-                >
+                <StyledLabel htmlFor="text" sx={{ mt: 3 }}>
                   Text
-                </label>
+                </StyledLabel>
                 <TextField
                   sx={{ mt: 1 }}
                   multiline
@@ -113,15 +105,10 @@ export const CreateArticlePage = () => {
                 />
 
                 <Grid item xs sx={{ mt: 2 }}>
-                  <Typography
-                    variant="h6"
-                    sx={{ fontWeight: "500", color: "#1A1E2C" }}
-                  >
+                  <Typography variant="h6" sx={{ color: '#1A1E2C', fontWeight: '500' }}>
                     Add cover photo
                   </Typography>
-                  <Typography sx={{ mt: 1, color: "#000000" }}>
-                    Drag and drop file below
-                  </Typography>
+                  <Typography sx={{ mt: 1, color: '#000000' }}>Drag and drop file below</Typography>
                 </Grid>
 
                 <DragAndDropUploadField />
@@ -144,7 +131,7 @@ export const CreateArticlePage = () => {
                     mt: 3,
                     mb: 2,
                     px: 4,
-                    height: "38px"
+                    height: '38px',
                   }}
                 >
                   Publish

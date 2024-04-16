@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { NavLink } from 'react-router-dom';
 import { CssBaseline, Button, TextField, Paper, Box, Grid, Typography } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
-import { defaultTheme } from '../theme';
+import { CustomLink, StyledLabel, defaultTheme } from '../theme';
 
 export const ForgotPasswordPage: React.FC = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -31,12 +30,20 @@ export const ForgotPasswordPage: React.FC = () => {
             backgroundPosition: 'center',
           }}
         />
-        <Grid item xs={12} sm={7}component={Paper} elevation={6} square sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              color: "#6F7C8B",
-            }}>
+        <Grid
+          item
+          xs={12}
+          sm={7}
+          component={Paper}
+          elevation={6}
+          square
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            color: '#6F7C8B',
+          }}
+        >
           <Box
             sx={{
               my: 8,
@@ -46,15 +53,19 @@ export const ForgotPasswordPage: React.FC = () => {
               alignItems: 'start',
             }}
           >
-            <Typography component="h1" variant="h5" sx={{ mt: 5, fontWeight: "700", color: "#1A1E2C" }}>
+            <Typography
+              component="h1"
+              variant="h5"
+              sx={{ mt: 5, fontWeight: '700', color: '#1A1E2C' }}
+            >
               Password recovery
             </Typography>
-            <Typography component="p" sx={{ mt: 1, color: "#1A1E2C" }}>
+            <Typography component="p" sx={{ mt: 1, color: '#1A1E2C' }}>
               Enter the email you're using for your account
             </Typography>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 4 }}>
               {/* <InputLabel key="email" sx={{ mb: -1}}>Email Address</InputLabel> */}
-              <label htmlFor="email" style={{ fontWeight: "500" }}>Email Address</label>
+              <StyledLabel htmlFor="email">Email Address</StyledLabel>
               <TextField
                 sx={{ mt: 1 }}
                 margin="normal"
@@ -66,25 +77,19 @@ export const ForgotPasswordPage: React.FC = () => {
                 autoComplete="email"
                 autoFocus
               />
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2}}
-              >
+              <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
                 Reset
               </Button>
             </Box>
 
-            <Grid container sx={{justifyContent: "center"}}>
-              <NavLink to="/sign-in" style={{ color: "#4C6FFF", marginTop: "20px" }}>
+            <Grid container sx={{ justifyContent: 'center' }}>
+              <CustomLink to="/sign-in" sx={{ mt: '20px' }}>
                 Back to Login
-              </NavLink>
-              </Grid>
+              </CustomLink>
+            </Grid>
           </Box>
         </Grid>
       </Grid>
-      
     </ThemeProvider>
   );
-}
+};
